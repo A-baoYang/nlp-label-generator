@@ -1,0 +1,8 @@
+*.ndjson.gz
+*.ndjson
+*.json
+*.in
+*.out
+*.cfg
+logs-default/
+__pycache__/
