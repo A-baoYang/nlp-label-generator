@@ -161,8 +161,14 @@ def split_sentence(
             sent_list_ori = document.splitlines()[::-1]
             while sent_list_ori:
                 paragraph = sent_list_ori.pop().strip()
+                len_sent = len(sent_list_ori)
                 while sent_list_ori and len(paragraph + sent_list_ori[-1]) < limit:
                     paragraph += sent_list_ori.pop().strip()
+                    if len(sent_list_ori) == len_sent:
+                        print(sent_list_ori)
+                        raise Exception("not reducing")
+                    else:
+                        len_sent = len(sent_list_ori)
                 result_list.append(paragraph)
 
     except Exception as e:
